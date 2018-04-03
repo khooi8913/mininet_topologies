@@ -3,21 +3,21 @@ from mininet.topo import Topo
 class TENANTS(Topo):
     "OF@TEIN Testbed Topology with 3 Tenants (A, B, C)"
 
-    def __init__(self):
+    def __init__(self, **opts):
         "Create OF@TEIN Testbed Topology with 3 Tenants(A, B, C)"
 
         # Initialize topology
-        Topo.__init__(self)
+        Topo.__init__(self, **opts)
 
         # TODO: Add controller
 
         # Create switches
-        switchMY = self.addSwitch("SW_MY_1")
-        switchKR = self.addSwitch("SW_KR_1")
-        switchTW = self.addSwitch("SW_TW_1")
+        switches = []
+        switches.append(self.addSwitch("SW_MY_1", dpid="1122334455667701", protocols="OpenFlow13"))
+        switches.append(self.addSwitch("SW_KR_1", dpid="1122334455667702", protocols="OpenFlow13"))
+        switches.append(self.addSwitch("SW_TW_1", dpid="1122334455667703", protocols="OpenFlow13"))
 
         # Create hosts
-
         hostMY = []
         hostMY.append(self.addHost("A1", ip='10.0.0.1/8', mac="00:00:00:00:00:01"))
         hostMY.append(self.addHost("B1", ip='10.0.0.1/8', mac="00:00:00:00:00:01"))
@@ -33,17 +33,19 @@ class TENANTS(Topo):
 
         # Create host links
         for h in hostMY:
-            self.addLink(switchMY, h)
+            self.addLink(switches[0], h)
 
         for h in hostKR:
-            self.addLink(switchKR, h)
+            self.addLink(switches[1], h)
 
         for h in hostTW:
-            self.addLink(switchTW, h)
+            self.addLink(switches[2], h)
 
         # Create switch links (Broadcast Storm Alert)
-        self.addLink(switchMY, switchKR)
-        self.addLink(switchKR, switchTW)
-        self.addLink(switchTW, switchMY)
+        self.addLink(switches[0], switches[1])
+        self.addLink(switches[1], switches[2])
+        self.addLink(switches[2], switches[0])
 
 topos = { 'tenants' : TENANTS }
+
+# sudo mn --custom oftein_tenants.py --topo tenants --controller remote,ip=<IP Address>
