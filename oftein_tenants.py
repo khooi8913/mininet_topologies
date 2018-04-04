@@ -19,17 +19,17 @@ class TENANTS(Topo):
 
         # Create hosts
         hostMY = []
-        hostMY.append(self.addHost("A1", ip='10.0.0.1/8', mac="00:00:00:00:00:01"))
-        hostMY.append(self.addHost("B1", ip='10.0.0.1/8', mac="00:00:00:00:00:01"))
-        hostMY.append(self.addHost("C1", ip='192.168.1.1/24', mac="00:00:00:00:00:01"))
+        hostMY.append(self.addHost("A1", ip='10.0.0.1/8', mac="0A:00:00:00:00:01"))
+        hostMY.append(self.addHost("B1", ip='10.0.0.1/8', mac="0B:00:00:00:00:01"))
+        hostMY.append(self.addHost("C1", ip='192.168.1.1/24', mac="0C:00:00:00:00:01"))
 
         hostKR = []
-        hostKR.append(self.addHost("A2", ip='10.0.0.2/8', mac="00:00:00:00:00:02"))
-        hostKR.append(self.addHost("B2", ip='10.0.0.2/8', mac="00:00:00:00:00:02"))
+        hostKR.append(self.addHost("A2", ip='10.0.0.2/8', mac="0A:00:00:00:00:02"))
+        hostKR.append(self.addHost("B2", ip='10.0.0.2/8', mac="0B:00:00:00:00:02"))
 
         hostTW = []
-        hostTW.append(self.addHost("A3", ip='10.0.0.3/8', mac="00:00:00:00:00:03"))
-        hostTW.append(self.addHost("C2", ip='192.168.1.2/24', mac="00:00:00:00:00:02"))
+        hostTW.append(self.addHost("A3", ip='10.0.0.3/8', mac="0A:00:00:00:00:03"))
+        hostTW.append(self.addHost("C2", ip='192.168.1.2/24', mac="0C:00:00:00:00:02"))
 
         # Create host links
         for h in hostMY:
