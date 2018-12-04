@@ -19,23 +19,23 @@ class LEAFSPINE(Topo):
         # Create hosts
         hostsL1 = []
         hostsL1.append(self.addHost("A1", ip='10.0.0.1/8', mac="0A:00:00:00:01:01", defaultRoute = "via 10.0.0.254"))
-        hostsL1.append(self.addHost("A2", ip='192.168.1.1/24', mac="0A:00:00:00:02:01", defaultRoute = "via 192.168.1.254"))
         hostsL1.append(self.addHost("B1", ip='10.0.0.1/8', mac="0B:00:00:00:01:01", defaultRoute="via 10.0.0.254"))
+        hostsL1.append(self.addHost("C1", ip='10.0.0.1/8', mac="0C:00:00:00:01:01", defaultRoute="via 10.0.0.254"))
 
         hostsL2 = []
-        hostsL2.append(self.addHost("A3", ip='10.0.0.2/8', mac="0A:00:00:00:01:02", defaultRoute="via 10.0.0.254"))
-        hostsL2.append(self.addHost("B2", ip='192.168.1.1/24', mac="0B:00:00:00:02:01", defaultRoute="via 192.168.1.254"))
-        hostsL2.append(self.addHost("B3", ip='172.16.0.1/16', mac="0B:00:00:00:03:01", defaultRoute="via 172.16.0.254"))
+        hostsL2.append(self.addHost("A2", ip='192.168.1.1/24', mac="0A:00:00:00:02:01", defaultRoute="via 192.168.1.254"))
+        hostsL2.append(self.addHost("B2", ip='172.16.0.1/16', mac="0B:00:00:00:02:01", defaultRoute="via 172.16.0.254"))
+        hostsL2.append(self.addHost("C2", ip='172.16.0.1/16', mac="0C:00:00:00:02:01", defaultRoute="via 172.16.0.254"))
 
         hostsL3 = []
-        hostsL3.append(self.addHost("A4", ip='192.168.1.2/24', mac="0A:00:00:00:02:02", defaultRoute="via 192.168.1.254"))
-        hostsL3.append(self.addHost("B4", ip='10.0.0.2/8', mac="0B:00:00:00:01:02", defaultRoute="via 10.0.0.254"))
-        hostsL3.append(self.addHost("B5", ip='192.168.1.2/24', mac="0B:00:00:00:02:02", defaultRoute="via 192.168.1.254"))
+        hostsL3.append(self.addHost("A3", ip='10.0.0.2/8', mac="0A:00:00:00:01:02", defaultRoute="via 10.0.0.254"))
+        hostsL3.append(self.addHost("B3", ip='10.0.0.2/8', mac="0B:00:00:00:01:02", defaultRoute="via 10.0.0.254"))
+        hostsL3.append(self.addHost("C3", ip='10.0.0.2/8', mac="0C:00:00:00:01:02", defaultRoute="via 10.0.0.254"))
 
         hostsL4 = []
-        hostsL4.append(self.addHost("A5", ip='10.0.0.3/8', mac="0A:00:00:00:01:03", defaultRoute="via 10.0.0.254"))
-        hostsL4.append(self.addHost("A6", ip='192.168.1.3/24', mac="0A:00:00:00:02:03", defaultRoute="via 192.168.1.254"))
-        hostsL4.append(self.addHost("B6", ip='172.16.0.2/16', mac="0B:00:00:00:03:02", defaultRoute="via 172.16.0.254"))
+        hostsL4.append(self.addHost("A4", ip='192.168.1.2/24', mac="0A:00:00:00:02:02", defaultRoute="via 192.168.1.254"))
+        hostsL4.append(self.addHost("B4", ip='172.16.0.2/16', mac="0B:00:00:00:02:02", defaultRoute="via 172.16.0.254"))
+        hostsL4.append(self.addHost("C4", ip='172.16.0.2/16', mac="0C:00:00:00:02:02", defaultRoute="via 172.16.0.254"))
 
         # Create host links
         for h in hostsL1:   self.addLink(switches[2], h)
