@@ -21,13 +21,13 @@ class TEST(Topo):
         hostS1.append(self.addHost("A1", ip='10.0.0.1/8', mac="0A:00:00:00:00:01"))
         hostS1.append(self.addHost("B1", ip='10.0.0.1/8', mac="0B:00:00:00:00:01"))
         hostS1.append(self.addHost("A2", ip='192.168.1.1/24', mac="0A:00:00:00:0A:01"))
-        hostS1.append(self.addHost("B2", ip='192.168.1.1/24', mac="0B:00:00:00:0A:01"))
+        hostS1.append(self.addHost("B2", ip='172.16.31.1/24', mac="0B:00:00:00:0A:01"))
 
         hostS4 = []
         hostS4.append(self.addHost("A3", ip='10.0.0.2/8', mac="0A:00:00:00:00:02"))
         hostS4.append(self.addHost("B3", ip='10.0.0.2/8', mac="0B:00:00:00:00:02"))
         hostS4.append(self.addHost("A4", ip='192.168.1.2/24', mac="0A:00:00:00:0A:02"))
-        hostS4.append(self.addHost("B4", ip='192.168.1.2/24', mac="0B:00:00:00:0A:02"))
+        hostS4.append(self.addHost("B4", ip='172.16.31.2/24', mac="0B:00:00:00:0A:02"))
 
         # Create host links
         for h in hostS1:
